@@ -16,6 +16,9 @@ class Portfolio {
             { id: 11, src: 'img/Earth.jpg', title: 'Planet Earth', description: 'A view of our blue planet from space.', tags: ['Sci-Fi'] },
             { id: 12, src: 'img/EyeZoom.png', title: 'Zoom Eye', description: 'An organic build representing beauty of human face.', tags: ['Minecraft'] },
             { id: 13, src: 'img/F4G.jpg', title: 'Fight 4 Glory', description: 'A spawn for a minecraft Event.', tags: ['Minecraft'] },
+            { id: 57, src: 'img/watch4.jpg', title: 'Watches Collection', description: 'Detailed shot of a luxury timepiece.', tags: ['Professional'] },
+            { id: 58, src: 'img/watch5.jpg', title: 'Watches Collection', description: 'Detailed shot of a luxury timepiece.', tags: ['Professional'] },
+            { id: 59, src: 'img/watch6.jpg', title: 'Watches Collection', description: 'Detailed shot of a luxury timepiece.', tags: ['Professional'] },
             { id: 14, src: 'img/F4G2.jpg', title: 'Fight 4 Glory', description: 'A spawn for a minecraft Event.', tags: ['Minecraft'] },
             { id: 15, src: 'img/FortBoyard.jpg', title: 'Fort Boyard', description: 'The iconic French fortress in the sea.', tags: ['Minecraft'] },
             { id: 16, src: 'img/FortBoyard2.jpg', title: 'Fort Boyard', description: 'Another angle of Fort Boyard’s structure.', tags: ['Minecraft'] },
@@ -116,17 +119,21 @@ class Portfolio {
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(href);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
+                // Sinon, on laisse le lien s'ouvrir normalement
             });
         });
+
 
         // Social links hover effects
         document.querySelectorAll('.social-link').forEach(link => {
